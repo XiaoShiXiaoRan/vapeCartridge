@@ -16,7 +16,7 @@ spring:
     username: root
     password: root
 #    url: jdbc:mysql://192.168.3.96:3306/sanya?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    url: jdbc:mysql://localhost:3306/sanya?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/vape?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   main:
     allow-circular-references: true
@@ -25,7 +25,7 @@ spring:
       max-file-size: -1
       max-request-size: -1
   application:
-    name: sanya
+    name: xjx
 mybatis:
   table:
 
@@ -35,7 +35,7 @@ mybatis:
     #none 		系统不做任何处理。
     #add		新增表/新增字段/新增索引/新增唯一约束的功能，不做做修改和删除 (只在版本1.0.9.RELEASE及以上支持)。
   model:
-    pack: com.springboot.sanya.system.entity #扫描用于创建表的对象的包名，多个包用“,”隔开
+    pack: com.fidnortech.xjx.system.entity #扫描用于创建表的对象的包名，多个包用“,”隔开
   database:
     type: mysql #数据库类型 目前只支持mysql
 mybatis-plus:

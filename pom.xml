@@ -216,6 +216,15 @@
                     <classpathScope>test</classpathScope>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <!-- 定义文件编码，否则nacos配置文件中存在中文会报错 -->
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
