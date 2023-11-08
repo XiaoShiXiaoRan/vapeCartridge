@@ -8,8 +8,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  *  Mapper 接口
  * </p>
  *
- * @author linyq
- * @since 2021-11-04
  */
 public interface SysDepartMapper extends BaseMapper<SysDepart> {
 

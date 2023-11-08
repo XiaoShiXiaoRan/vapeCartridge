@@ -13,7 +13,7 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author linyq
+*
  * @since 2021-09-15
  */
 public interface SysRoleService extends IService<SysRole> {

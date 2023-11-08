@@ -8,7 +8,7 @@ import com.fidnortech.xjx.system.entity.SysUserRole;
  *  服务类
  * </p>
  *
- * @author linyq
+*
  * @since 2021-09-15
  */
 public interface SysUserRoleService extends IService<SysUserRole> {

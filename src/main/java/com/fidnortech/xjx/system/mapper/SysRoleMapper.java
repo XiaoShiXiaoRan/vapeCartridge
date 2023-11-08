@@ -14,7 +14,7 @@ import java.util.List;
  *  Mapper 接口
  * </p>
  *
- * @author linyq
+*
  * @since 2021-09-15
  */
 public interface SysRoleMapper extends BaseMapper<SysRole> {

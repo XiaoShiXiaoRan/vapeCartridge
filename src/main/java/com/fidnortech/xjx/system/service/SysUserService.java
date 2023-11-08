@@ -15,7 +15,7 @@ import java.util.Map;
  * 用户表 服务类
  * </p>
  *
- * @author linyq
+*
  * @since 2021-08-11
  */
 public interface SysUserService extends IService<SysUser> {

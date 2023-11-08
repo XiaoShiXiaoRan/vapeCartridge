@@ -13,8 +13,6 @@ import java.util.Map;
  *  服务类
  * </p>
  *
- * @author linyq
- * @since 2021-11-04
  */
 public interface SysDepartService extends IService<SysDepart> {
 

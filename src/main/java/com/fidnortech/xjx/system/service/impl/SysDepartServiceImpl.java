@@ -22,8 +22,6 @@ import java.util.Map;
  * 服务实现类
  * </p>
  *
- * @author linyq
- * @since 2021-11-04
  */
 @Service
 public class SysDepartServiceImpl extends ServiceImpl<SysDepartMapper, SysDepart> implements SysDepartService {

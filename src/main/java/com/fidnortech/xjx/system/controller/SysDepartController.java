@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 前端控制器
  * </p>
  *
- * @author linyq
- * @since 2021-11-04
  */
 @Controller
 @RequestMapping("/system/sys-depart")

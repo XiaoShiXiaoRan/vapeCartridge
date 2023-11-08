@@ -18,7 +18,7 @@ import java.util.List;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author linyq
+*
  * @since 2021-08-11
  */
 @Mapper

@@ -10,7 +10,7 @@ import lombok.Data;
  * 用户表
  * </p>
  *
- * @author linyq
+*
  * @since 2021-08-11
  */
 @Data

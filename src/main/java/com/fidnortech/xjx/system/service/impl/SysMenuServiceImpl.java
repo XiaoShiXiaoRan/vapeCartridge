@@ -111,7 +111,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     /**
      * @return com.springboot.bus.common.RFesponseMessage
-     * @Author pangguangyu
+     *
      * @Description 根据用户id获取用户菜单（用户菜单 = 角色菜单 + 平台审批申请的菜单）
      * @Date 2022/6/13 15:53
      * @Method getMenuByUserId
@@ -188,7 +188,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     /**
      * @return
-     * @Author pangguangyu
+     *
      * @Description //TODO
      * @Date 2022/6/13 15:47
      * @Param * @param

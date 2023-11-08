@@ -20,8 +20,6 @@ import lombok.experimental.Accessors;
  *
  * </p>
  *
- * @author linyq
- * @since 2021-11-04
  */
 @Data
 @Accessors(chain = true)

@@ -12,7 +12,7 @@ import com.fidnortech.xjx.base.BaseController;
  *  前端控制器
  * </p>
  *
- * @author linyq
+*
  * @since 2021-09-15
  */
 @Controller
