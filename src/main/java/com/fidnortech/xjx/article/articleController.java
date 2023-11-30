@@ -21,7 +21,7 @@ import java.util.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/article")
+@RequestMapping("/file")
 @Api(tags = "文章管理")
 public class articleController {
 
@@ -118,4 +118,8 @@ public class articleController {
         }
 
     }
+
+
+
+
 }

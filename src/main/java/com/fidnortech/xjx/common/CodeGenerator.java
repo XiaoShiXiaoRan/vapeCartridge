@@ -34,7 +34,7 @@ public class CodeGenerator {
         //指定输出目录
         gc.setOutputDir(projectPath + "\\src\\main\\java");
         //作者名
-        gc.setAuthor("xiaojiaxin");
+        gc.setAuthor("xjx");
         //是否打开输出目录
         gc.setOpen(false);
         //时间策略
@@ -50,10 +50,10 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.3.96:3306/sanya?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://192.168.0.160:3306/vape?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -76,7 +76,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/src/main/java/com/springboot/sanya/"+ pc.getModuleName()+"/mapper/xml"
+                return projectPath + "/src/main/java/com/fidnortech/xjx/"+ pc.getModuleName()+"/mapper/xml"
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -96,7 +96,7 @@ public class CodeGenerator {
 
         //strategy.setInclude("t_correct");//修改替换成你需要的表名，多个表名传数组
         //strategy.setInclude("t_metadata_info");//修改替换成你需要的表名，多个表名传数组
-        strategy.setInclude("t_village_grid");//修改替换成你需要的表名，多个表名传数组
+        strategy.setInclude("t_news_article");//修改替换成你需要的表名，多个表名传数组
         strategy.setSuperControllerClass("com.fidnortech.xjx.base.BaseController");
 
 //        strategy.setSuperEntityColumns("id", "create_by", "create_time", "update_by", "update_time", "is_del");
