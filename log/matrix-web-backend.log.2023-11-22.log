@@ -1,0 +1,56 @@
+2023-11-22 10:13:59.325  [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.3.Final
+2023-11-22 10:13:59.338  [main] INFO  com.fidnortech.xjx.SpringbootApplication - Starting SpringbootApplication using Java 1.8.0_191 on xjx with PID 1892 (C:\code\github\vapeCartridge\target\classes started by xjx in C:\code\github\vapeCartridge)
+2023-11-22 10:13:59.338  [main] INFO  com.fidnortech.xjx.SpringbootApplication - The following 1 profile is active: "dev"
+2023-11-22 10:14:00.269  [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 62001 (http)
+2023-11-22 10:14:00.276  [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-62001"]
+2023-11-22 10:14:00.276  [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-11-22 10:14:00.276  [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2023-11-22 10:14:00.455  [main] INFO  o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2023-11-22 10:14:00.455  [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1087 ms
+2023-11-22 10:14:00.876  [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-11-22 10:14:01.170  [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-11-22 10:14:01.375  [main] INFO  o.s.boot.web.servlet.RegistrationBean - Filter securityAuthenticationTokenFilter was not registered (disabled)
+2023-11-22 10:14:01.665  [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c2cdc67, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c28f97e, org.springframework.security.web.context.SecurityContextPersistenceFilter@103e7c7c, org.springframework.security.web.header.HeaderWriterFilter@2bd4780c, org.springframework.security.web.authentication.logout.LogoutFilter@5cfa2ac5, com.fidnortech.xjx.security.SecurityAuthenticationTokenFilter@778113f2, com.fidnortech.xjx.security.JWTAuthenticationFilter@21d8da75, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8b1202a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dfc59c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a1c7619, org.springframework.security.web.session.SessionManagementFilter@395eb363, org.springframework.security.web.access.ExceptionTranslationFilter@11309dd4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@355493bf]
+2023-11-22 10:14:01.696  [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-22 10:14:01.949  [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-62001"]
+2023-11-22 10:14:01.964  [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 62001 (http) with context path '/api'
+2023-11-22 10:14:01.964  [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2023-11-22 10:14:01.976  [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-11-22 10:14:01.998  [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2023-11-22 10:14:02.110  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getListUsingPOST_1
+2023-11-22 10:14:02.114  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingPOST_1
+2023-11-22 10:14:02.114  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getByIdUsingPOST_1
+2023-11-22 10:14:02.115  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getListUsingPOST_2
+2023-11-22 10:14:02.131  [main] INFO  com.fidnortech.xjx.SpringbootApplication - Started SpringbootApplication in 3.041 seconds (JVM running for 3.925)
+2023-11-22 10:16:50.489  [http-nio-62001-exec-3] INFO  o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22 10:16:50.489  [http-nio-62001-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-11-22 10:16:50.490  [http-nio-62001-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-11-22 17:16:10.814  [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.3.Final
+2023-11-22 17:16:10.822  [main] INFO  com.fidnortech.xjx.SpringbootApplication - Starting SpringbootApplication using Java 1.8.0_191 on xjx with PID 203044 (C:\code\github\vapeCartridge\target\classes started by xjx in C:\code\github\vapeCartridge)
+2023-11-22 17:16:10.822  [main] INFO  com.fidnortech.xjx.SpringbootApplication - The following 1 profile is active: "dev"
+2023-11-22 17:16:11.468  [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 62001 (http)
+2023-11-22 17:16:11.472  [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-62001"]
+2023-11-22 17:16:11.472  [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-11-22 17:16:11.472  [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2023-11-22 17:16:11.588  [main] INFO  o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2023-11-22 17:16:11.588  [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 744 ms
+2023-11-22 17:16:11.995  [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-11-22 17:16:12.270  [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-11-22 17:16:12.464  [main] INFO  o.s.boot.web.servlet.RegistrationBean - Filter securityAuthenticationTokenFilter was not registered (disabled)
+2023-11-22 17:16:12.685  [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@13d1f898, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c87787d, org.springframework.security.web.context.SecurityContextPersistenceFilter@18b3db6e, org.springframework.security.web.header.HeaderWriterFilter@199806aa, org.springframework.security.web.authentication.logout.LogoutFilter@29532e91, com.fidnortech.xjx.security.SecurityAuthenticationTokenFilter@6c2883b1, com.fidnortech.xjx.security.JWTAuthenticationFilter@1bea7b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34695b23, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41f40dfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31433df9, org.springframework.security.web.session.SessionManagementFilter@fa11fda, org.springframework.security.web.access.ExceptionTranslationFilter@28b2e4d8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31443680]
+2023-11-22 17:16:12.702  [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-22 17:16:12.867  [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-62001"]
+2023-11-22 17:16:12.877  [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 62001 (http) with context path '/api'
+2023-11-22 17:16:12.878  [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2023-11-22 17:16:12.885  [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2023-11-22 17:16:12.900  [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2023-11-22 17:16:12.981  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getListUsingPOST_1
+2023-11-22 17:16:12.984  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingPOST_1
+2023-11-22 17:16:12.985  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getByIdUsingPOST_1
+2023-11-22 17:16:12.985  [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getListUsingPOST_2
+2023-11-22 17:16:12.997  [main] INFO  com.fidnortech.xjx.SpringbootApplication - Started SpringbootApplication in 2.356 seconds (JVM running for 2.858)
+2023-11-22 17:17:27.314  [http-nio-62001-exec-2] INFO  o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22 17:17:27.314  [http-nio-62001-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-11-22 17:17:27.315  [http-nio-62001-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-11-22 17:39:04.577  [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-11-22 17:39:04.579  [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

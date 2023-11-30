@@ -1,0 +1,44 @@
+server:
+  port: 62001
+  servlet:
+    context-path: /api
+  tomcat:
+    max-http-form-post-size: 1GB
+#  ssl:
+#    #key-store表示密钥文件名。
+#    #key-alias表示密钥别名。
+#    #key-store-password就是在cmd命令执行过程中输入的密码。
+#    key-alias: classpath:javasign.p12
+#    key-store: tomcathttps
+#    key-store-password: 13617094616
+spring:
+  datasource:
+    username: root
+    password: wp_szxc_coopom@123
+    url: jdbc:mysql://127.0.0.1:3306/sanya?characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-circular-references: true
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+  application:
+    name: sanya
+mybatis:
+  table:
+
+    auto: none
+    #create	    系统启动后，会将所有的表删除掉，然后根据model中配置的结构重新建表，该操作会破坏原有数据。
+    #update	    系统会自动判断哪些表是新建的，哪些字段要修改类型等，哪些字段要删除，哪些字段要新增，该操作不会破坏原有数据。
+    #none 		系统不做任何处理。
+    #add		新增表/新增字段/新增索引/新增唯一约束的功能，不做做修改和删除 (只在版本1.0.9.RELEASE及以上支持)。
+  model:
+    pack: com.fidnortech.xjx.system.entity #扫描用于创建表的对象的包名，多个包用“,”隔开
+  database:
+    type: mysql #数据库类型 目前只支持mysql
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+  mapper-locations: classpath*:**/*Mapper.xml
+
