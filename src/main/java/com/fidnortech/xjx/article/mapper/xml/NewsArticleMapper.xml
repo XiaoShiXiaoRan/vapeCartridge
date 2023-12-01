@@ -8,12 +8,13 @@
         <result column="title" property="title" />
         <result column="author" property="author" />
         <result column="release_time" property="releaseTime" />
-        <result column="describe" property="describe" />
+        <result column="article_data" property="articleData" />
+        <result column="is_del" property="isDel" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, author, release_time, describe
+        id, title, author, release_time, article_data, is_del
     </sql>
 
 </mapper>

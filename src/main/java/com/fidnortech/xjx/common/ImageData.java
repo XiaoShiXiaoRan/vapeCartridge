@@ -10,8 +10,8 @@ public class ImageData {
     String alt;
     String href;
     public ImageData(String name) {
-        this.url = "http://192.168.0.160:62001/api/article/image/"+name;
+        this.url = "http://192.168.0.160:62001/api/file/image/"+name;
         this.alt = name;
-        this.href = "http://192.168.0.160:62001/api/article/image/"+name;
+        this.href = "http://192.168.0.160:62001/api/file/image/"+name;
     }
 }
