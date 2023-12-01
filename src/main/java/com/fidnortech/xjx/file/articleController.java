@@ -1,4 +1,4 @@
-package com.fidnortech.xjx.article;
+package com.fidnortech.xjx.file;
 
 
 import com.fidnortech.xjx.common.ImageData;
@@ -22,7 +22,7 @@ import java.util.*;
 @Slf4j
 @RestController
 @RequestMapping("/file")
-@Api(tags = "文章管理")
+@Api(tags = "文件处理")
 public class articleController {
 
     @PostMapping("/ImageData")

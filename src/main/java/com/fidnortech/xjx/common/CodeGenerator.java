@@ -58,7 +58,7 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("business");
+        pc.setModuleName("article");
         pc.setParent(packageName);
         pc.setController("controller");
         pc.setEntity("entity");
