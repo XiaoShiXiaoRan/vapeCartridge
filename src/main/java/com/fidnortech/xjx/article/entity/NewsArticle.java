@@ -50,7 +50,7 @@ public class NewsArticle implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date releaseTime;
 
-    @ApiModelProperty(value = "文章描述")
+    @ApiModelProperty(value = "文章内容")
     @TableField("article_data")
     private String articleData;
 

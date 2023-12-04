@@ -8,11 +8,15 @@ import com.fidnortech.xjx.annotation.LogRecord;
 import com.fidnortech.xjx.article.entity.NewsArticle;
 import com.fidnortech.xjx.article.service.NewsArticleService;
 import com.fidnortech.xjx.common.ResponseMessage;
+import com.fidnortech.xjx.utils.DateUtil;
+import com.fidnortech.xjx.utils.UserUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,7 +42,7 @@ public class NewsArticleController extends BaseController {
     @Autowired
     private NewsArticleService newsArticleService;
 
-    @PostMapping(value = "/getArticleListPage")
+    @GetMapping(value = "/getArticleListPage")
     @ApiOperation(value="获取角色列表分页")
     @LogRecord(modular = "文章管理",value = "查询")
     public ResponseMessage getArticleListPage(String title){
@@ -58,6 +62,48 @@ public class NewsArticleController extends BaseController {
         IPage<NewsArticle> pageData = newsArticleService.page(page,queryWrapper);
 
         return ResponseMessage.success(pageData);
+    }
+
+    /**
+     * 根据文章id查询文章信息
+     */
+    @PostMapping(value = "/getByIdArticle")
+    @ApiOperation(value="根据id获取文章信息")
+    @LogRecord(modular = "文章管理",value = "查询")
+    public ResponseMessage getByIdArticle(String id){
+
+        NewsArticle newsArticle = newsArticleService.getById(id);
+
+        return ResponseMessage.success(newsArticle);
+    }
+
+
+    /**
+     * 新增OR修改文章
+     */
+    @PostMapping(value = "/saveArticle")
+    @ApiOperation(value="保存文章")
+    @LogRecord(modular = "文章管理",value = "保存")
+    public ResponseMessage saveArticle(NewsArticle newsArticle){
+
+        newsArticle.setIsDel(0);
+
+        newsArticle.setReleaseTime(DateUtil.getTodayDate());
+
+        newsArticle.setAuthor(UserUtil.getUser().getUserName());
+
+        boolean ok = newsArticleService.saveOrUpdate(newsArticle);
+
+        String message;
+
+        if (ok){
+            message = "保存成功";
+        }else {
+            message = "保存失败";
+        }
+
+
+        return ResponseMessage.success(message);
     }
 
 }
