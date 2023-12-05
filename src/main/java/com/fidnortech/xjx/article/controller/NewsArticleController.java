@@ -10,6 +10,7 @@ import com.fidnortech.xjx.article.service.NewsArticleService;
 import com.fidnortech.xjx.common.ResponseMessage;
 import com.fidnortech.xjx.utils.DateUtil;
 import com.fidnortech.xjx.utils.UserUtil;
+import com.sun.istack.internal.NotNull;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import com.fidnortech.xjx.base.BaseController;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * <p>
@@ -42,7 +46,7 @@ public class NewsArticleController extends BaseController {
     @Autowired
     private NewsArticleService newsArticleService;
 
-    @GetMapping(value = "/getArticleListPage")
+    @PostMapping(value = "/getArticleListPage")
     @ApiOperation(value="获取角色列表分页")
     @LogRecord(modular = "文章管理",value = "查询")
     public ResponseMessage getArticleListPage(String title){
@@ -77,6 +81,23 @@ public class NewsArticleController extends BaseController {
         return ResponseMessage.success(newsArticle);
     }
 
+    /**
+     * 根据文章title查询文章信息
+     */
+    @PostMapping(value = "/getByTitleArticle")
+    @ApiOperation(value="根据title获取文章信息")
+    @LogRecord(modular = "文章管理",value = "查询")
+    public ResponseMessage getByTitleArticle(String title){
+
+        QueryWrapper<NewsArticle> queryWrapper = new QueryWrapper<>();
+
+        queryWrapper.eq("title",title);
+
+        NewsArticle newsArticle = newsArticleService.getOne(queryWrapper);
+
+        return ResponseMessage.success(newsArticle);
+    }
+
 
     /**
      * 新增OR修改文章
@@ -85,6 +106,18 @@ public class NewsArticleController extends BaseController {
     @ApiOperation(value="保存文章")
     @LogRecord(modular = "文章管理",value = "保存")
     public ResponseMessage saveArticle(NewsArticle newsArticle){
+
+        //增加逻辑判断 title 不能重复
+
+        List<NewsArticle> list = newsArticleService.list();
+
+        for (int i = 0; i < list.size(); i++) {
+            NewsArticle item = list.get(i);
+
+            if (item.getTitle().equals(newsArticle.getTitle())){
+                return ResponseMessage.error("保存失败，文章标题不能重复请重新输入。");
+            }
+        }
 
         newsArticle.setIsDel(0);
 
@@ -102,6 +135,34 @@ public class NewsArticleController extends BaseController {
             message = "保存失败";
         }
 
+
+        return ResponseMessage.success(message);
+    }
+
+    @PostMapping(value = "/deleteArticle")
+    @ApiOperation(value="删除文章")
+    @LogRecord(modular = "文章管理",value = "删除")
+    public ResponseMessage deleteArticle(String ids){
+        String[] str = ids.split(",");
+
+        boolean ok = false;
+
+        for (int i = 0; i < str.length; i++) {
+
+            NewsArticle data = newsArticleService.getById(str[i]);
+
+            data.setIsDel(1);
+
+            ok = newsArticleService.saveOrUpdate(data);
+        }
+
+        String message;
+
+        if (ok){
+            message = "删除成功";
+        }else {
+            message = "删除失败";
+        }
 
         return ResponseMessage.success(message);
     }
