@@ -58,7 +58,7 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("article");
+        pc.setModuleName("commodity");
         pc.setParent(packageName);
         pc.setController("controller");
         pc.setEntity("entity");
@@ -96,7 +96,7 @@ public class CodeGenerator {
 
         //strategy.setInclude("t_correct");//修改替换成你需要的表名，多个表名传数组
         //strategy.setInclude("t_metadata_info");//修改替换成你需要的表名，多个表名传数组
-        strategy.setInclude("t_news_article");//修改替换成你需要的表名，多个表名传数组
+        strategy.setInclude("t_commodity","t_commodity_type");//修改替换成你需要的表名，多个表名传数组
         strategy.setSuperControllerClass("com.fidnortech.xjx.base.BaseController");
 
 //        strategy.setSuperEntityColumns("id", "create_by", "create_time", "update_by", "update_time", "is_del");

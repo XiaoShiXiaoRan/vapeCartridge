@@ -10,7 +10,6 @@ import com.fidnortech.xjx.article.service.NewsArticleService;
 import com.fidnortech.xjx.common.ResponseMessage;
 import com.fidnortech.xjx.utils.DateUtil;
 import com.fidnortech.xjx.utils.UserUtil;
-import com.sun.istack.internal.NotNull;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -50,7 +49,6 @@ public class NewsArticleController extends BaseController {
     @ApiOperation(value="获取角色列表分页")
     @LogRecord(modular = "文章管理",value = "查询")
     public ResponseMessage getArticleListPage(String title){
-
 
         Page<NewsArticle> page = this.getPagination();
 
