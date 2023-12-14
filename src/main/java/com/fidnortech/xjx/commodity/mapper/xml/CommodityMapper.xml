@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fidnortech.xjx.commodity.mapper.CommodityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fidnortech.xjx.commodity.entity.Commodity">
+        <id column="id" property="id" />
+        <result column="type_id" property="typeId" />
+        <result column="name" property="name" />
+        <result column="information" property="information" />
+        <result column="image" property="image" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, type_id, name, information, image
+    </sql>
+    <select id="getPage" resultType="com.fidnortech.xjx.commodity.entity.CommodtyVo">
+        <bind name="startIndex" value="(current-1) * size"/>
+        SELECT T1.id,T2.type_name,T1.name,T1.information,T1.image FROM t_commodity T1 LEFT JOIN t_commodity_type T2 ON T2.type_id = T1.type_id
+        <where>
+                T1.is_del = 0
+            <if test='name!=null and name!=""'>
+                and T1.name like concat('%',#{name},'%')
+            </if>
+            <if test='typeId!=null and typeId!=""'>
+                and T1.type_id like concat('%',#{typeId},'%')
+            </if>
+        </where>
+        LIMIT #{startIndex,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+    </select>
+
+</mapper>
