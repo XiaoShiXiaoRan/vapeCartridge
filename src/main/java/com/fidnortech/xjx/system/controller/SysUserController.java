@@ -17,6 +17,7 @@ import com.fidnortech.xjx.system.service.SysRoleService;
 import com.fidnortech.xjx.system.service.SysUserRoleService;
 import com.fidnortech.xjx.system.service.SysUserService;
 import com.fidnortech.xjx.utils.DateUtil;
+import com.fidnortech.xjx.utils.MailUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -31,9 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * <p>
@@ -58,6 +57,8 @@ public class SysUserController extends BaseController {
     @Autowired
     private SysRoleService sysRoleService;
 
+    @Autowired
+    private MailUtil mailUtil;
 
     @RequestMapping(value = "/getList", method = RequestMethod.POST)
     @ResponseBody
@@ -254,5 +255,71 @@ public class SysUserController extends BaseController {
         return ResponseMessage.success(userRoleVo);
     }
 
+    @RequestMapping(value = "/goGmail", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseMessage goGmail(){
 
+        //查询所有普通用户邮箱地址
+        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
+
+        queryWrapper.select("user_name","email");
+
+        queryWrapper.eq("role_id","1734157465534156801");
+
+        List<SysUser> userList = sysUserService.list(queryWrapper);
+
+        for (int i = 0; i < userList.size(); i++) {
+
+            SysUser item = userList.get(i);
+
+            String text = String.format(mailUtil.getMailText(),
+                    "fidnor.com",
+                    String.format(MailUtil.imMail, "XiaoRan"),
+                    "XiaoRan",
+                    "文字描述",
+                    "自定义内容，谷歌邮箱发送  群发退回邮件测试1。",
+                    "FidNor");
+
+            mailUtil.sendMailOneMessage(item.getEmail(), item.getUserName()+"您有一封来自 fidnor.com 的邮件！", text);
+
+        }
+
+        return ResponseMessage.success("发送成功");
+    }
+
+    @RequestMapping(value = "/goAllGmail", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseMessage goAllGmail(){
+
+        //查询所有普通用户邮箱地址
+        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
+
+        queryWrapper.select("user_name","email");
+
+        queryWrapper.eq("role_id","1734157465534156801");
+
+        List<SysUser> userList = sysUserService.list(queryWrapper);
+
+        List<String> mailList = new ArrayList<>();
+
+        for (int i = 0; i < userList.size(); i++) {
+
+            SysUser item = userList.get(i);
+
+            mailList.add(item.getEmail());
+
+        }
+
+        String text = String.format(mailUtil.getMailText(),
+                "fidnor.com",
+                String.format(MailUtil.imMail, "XiaoRan"),
+                "XiaoRan",
+                "文字描述",
+                "自定义内容，群发邮件测试。",
+                "FidNor");
+
+        mailUtil.sendMailMessage(mailList, "您有一封来自 fidnor.com 的邮件！", text);
+
+        return ResponseMessage.success("发送成功");
+    }
 }

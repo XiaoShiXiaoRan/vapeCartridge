@@ -25,6 +25,29 @@ spring:
       max-request-size: -1
   application:
     name: xjx
+  mail:
+    host: smtp.gmail.com
+    username: 13576154061xjx@gmail.com
+    password: sndwtkrhdxgpdvdb
+    default-encoding: utf-8
+    protocol: smtp
+    port: 465
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+
+#            host: smtp.gmail.com
+#            username: 13576154061xjx@gmail.com
+#            password: sndwtkrhdxgpdvdb
+
+#            host: smtp.qq.com
+#            username: 1749512834@qq.com
+#            password: dmsnonkopsvecaea
 mybatis:
   table:
 
