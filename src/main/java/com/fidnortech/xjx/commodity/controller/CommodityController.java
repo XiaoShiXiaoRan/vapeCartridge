@@ -83,7 +83,7 @@ public class CommodityController extends BaseController {
                     return ResponseMessage.error("保存失败，文章标题不能重复请重新输入。");
                 }
             }
-
+            commodity.setId(id);
         }
         commodity.setTypeId(typeId);
         commodity.setInformation(information);

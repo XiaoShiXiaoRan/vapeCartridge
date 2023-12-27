@@ -65,6 +65,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*/api-docs").permitAll()
                 .antMatchers("/equipment/*").permitAll()
                 .antMatchers("/file/**").permitAll()
+                .antMatchers("//Web/Home/*").permitAll()
                 .antMatchers("/web/**","/css/**","/js/**"  , "/v2/**","/protocolConversion/**").permitAll().anyRequest().authenticated();
         // 禁用缓存
         http.headers().cacheControl();
