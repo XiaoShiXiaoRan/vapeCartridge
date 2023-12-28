@@ -105,17 +105,18 @@ public class NewsArticleController extends BaseController {
     @LogRecord(modular = "文章管理",value = "保存")
     public ResponseMessage saveArticle(NewsArticle newsArticle){
 
-        if (StringUtils.isBlank(newsArticle.getId())){
-            //增加逻辑判断 title 不能重复
+        QueryWrapper<NewsArticle> queryWrapper = new QueryWrapper<>();
 
-            List<NewsArticle> list = newsArticleService.list();
+        queryWrapper.eq("is_del",0);
+        queryWrapper.ne(StringUtils.isNotBlank(newsArticle.getId()),"id",newsArticle.getId());
 
-            for (int i = 0; i < list.size(); i++) {
-                NewsArticle item = list.get(i);
+        List<NewsArticle> list = newsArticleService.list(queryWrapper);
 
-                if (item.getTitle().equals(newsArticle.getTitle())){
-                    return ResponseMessage.error("保存失败，文章标题不能重复请重新输入。");
-                }
+        for (int i = 0; i < list.size(); i++) {
+            NewsArticle item = list.get(i);
+
+            if (item.getTitle().equals(newsArticle.getTitle())){
+                return ResponseMessage.error("保存失败，文章标题不能重复请重新输入。");
             }
         }
 

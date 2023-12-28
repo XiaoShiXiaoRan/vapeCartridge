@@ -17,7 +17,7 @@
     </sql>
     <select id="getPage" resultType="com.fidnortech.xjx.commodity.entity.CommodtyVo">
         <bind name="startIndex" value="(current-1) * size"/>
-        SELECT T1.id,T2.type_name,T1.name,T1.information,T1.image FROM t_commodity T1 LEFT JOIN t_commodity_type T2 ON T2.type_id = T1.type_id
+        SELECT T1.id,T2.type_name,T1.name,T1.information,T1.image,T1.heat,T1.url FROM t_commodity T1 LEFT JOIN t_commodity_type T2 ON T2.type_id = T1.type_id
         <where>
                 T1.is_del = 0
             <if test='name!=null and name!=""'>

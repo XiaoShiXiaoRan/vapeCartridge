@@ -52,6 +52,14 @@ public class Commodity implements Serializable{
     @TableField("image")
     private byte[] image;
 
+    @ApiModelProperty(value = "商品详情页路由")
+    @TableField("url")
+    private String url;
+
+    @ApiModelProperty(value = "热度排行")
+    @TableField("heat")
+    private Integer heat;
+
     @ApiModelProperty(value = "删除标识 0：否，1：是")
     @TableField("is_del")
     private Integer isDel;

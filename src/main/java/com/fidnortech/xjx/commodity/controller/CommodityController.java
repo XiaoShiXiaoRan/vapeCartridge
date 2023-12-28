@@ -1,6 +1,7 @@
 package com.fidnortech.xjx.commodity.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fidnortech.xjx.annotation.LogRecord;
 import com.fidnortech.xjx.article.entity.NewsArticle;
@@ -71,23 +72,32 @@ public class CommodityController extends BaseController {
         Integer typeId = Integer.valueOf(request.getParameter("typeId"));
         String information = request.getParameter("information");
         String name = request.getParameter("name");
+        String url = request.getParameter("url");
+        Integer heat = Integer.valueOf(request.getParameter("heat"));
 
+        //商品名不能重复
+        QueryWrapper<Commodity> queryWrapper = new QueryWrapper<>();
 
+        queryWrapper.ne(StringUtils.isNotBlank(id),"id",id);
+        queryWrapper.eq("is_del",0);
 
-        if (StringUtils.isBlank(id)){
-            //商品名不能重复
-            List<Commodity> list = commodityService.list();
+        List<Commodity> list = commodityService.list(queryWrapper);
 
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i).getName().equals(name)){
-                    return ResponseMessage.error("保存失败，文章标题不能重复请重新输入。");
-                }
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getName().equals(name)){
+                return ResponseMessage.error("保存失败，文章标题不能重复请重新输入。");
             }
+        }
+
+        if (StringUtils.isNotBlank(id)){
             commodity.setId(id);
         }
+
         commodity.setTypeId(typeId);
         commodity.setInformation(information);
         commodity.setName(name);
+        commodity.setUrl(url);
+        commodity.setHeat(heat);
 
         commodity.setIsDel(0);
 
