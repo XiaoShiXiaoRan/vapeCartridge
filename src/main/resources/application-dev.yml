@@ -26,9 +26,9 @@ spring:
   application:
     name: xjx
   mail:
-    host: smtp.gmail.com
-    username: 13576154061xjx@gmail.com
-    password: sndwtkrhdxgpdvdb
+    host: smtp.qq.com
+    username: 1749512834@qq.com
+    password: dmsnonkopsvecaea
     default-encoding: utf-8
     protocol: smtp
     port: 465

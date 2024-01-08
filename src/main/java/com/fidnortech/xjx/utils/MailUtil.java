@@ -101,6 +101,179 @@ public class MailUtil {
         return mailText;
     }
 
+    private String mailCustom;
+
+    @PostConstruct
+    public void initCustom() {
+        this.mailCustom = "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%%\" bgcolor=\"#EDF9F5\" style=\"font-size: 14px;font-family: Arial;padding-bottom: 40px;\">\n" +
+                "        <tr>\n" +
+                "            <td height=\"30\"></td>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                <table border=\"0\" cellpadding=\"8\" cellspacing=\"0\" width=\"600\" bgcolor=\"#FFFFFF\" align=\"center\">\n" +
+                "                    <tr>\n" +
+                "                        <td bgcolor=\"#23c09d\">\n" +
+                "                        </td>\n" +
+                "                    </tr>\n" +
+                "                    <tr>\n" +
+                "                        <td>\n" +
+                "                            <table border=\"1\" cellpadding=\"8\" cellspacing=\"0\" width=\"100%%\" align=\"center\" style=\"border-collapse: collapse;border-color: #ebeef5\">\n" +
+                "                                <tr>\n" +
+                "                                    <td height=\"60\" align=\"center\" style=\"color: #23c09d;font-weight: 500;font-size: 1.5rem;border-bottom: 1px solid #dcdfe6\">\n" +
+                "                                        收到一封来自 %s 的测试样品请求邮件 \n" +
+                "                                    </td>\n" +
+                "                                </tr>\n" +
+                "                                <tr>\n" +
+                "                                    <td height=\"60\" style=\"font-size: 1.1rem;color: #1f2f3d\">\n" +
+                "                                        <span style=\"border-left: 3px solid #23c09d;padding-left: 20PX;\">\n" +
+                "                                            firstname: %s \n" +
+                "                                        </span>\n" +
+                "                                    </td>\n" +
+                "                                </tr>\n" +
+                "                                <tr>\n" +
+                "                                    <td height=\"60\" style=\"font-size: 1.1rem;color: #1f2f3d\">\n" +
+                "                                        <span style=\"border-left: 3px solid #23c09d;padding-left: 20PX;\">\n" +
+                "                                            lastname: %s \n" +
+                "                                        </span>\n" +
+                "                                    </td>\n" +
+                "                                </tr>\n" +
+                "                                <tr>\n" +
+                "                                    <td height=\"60\" style=\"font-size: 1.1rem;color: #1f2f3d\">\n" +
+                "                                        <span style=\"border-left: 3px solid #23c09d;padding-left: 20PX;\">\n" +
+                "                                            email: %s \n" +
+                "                                        </span>\n" +
+                "                                    </td>\n" +
+                "                                </tr>\n" +
+                "                                <tr>\n" +
+                "                                    <td height=\"60\" style=\"font-size: 1.1rem;color: #1f2f3d\">\n" +
+                "                                        <span style=\"border-left: 3px solid #23c09d;padding-left: 20PX;\">\n" +
+                "                                            phone: %s \n" +
+                "                                        </span>\n" +
+                "                                    </td>\n" +
+                "                                </tr>\n" +
+                "                                <tr>\n" +
+                "                                    <td height=\"60\" style=\"font-size: 1.1rem;color: #1f2f3d\">\n" +
+                "                                        <span style=\"border-left: 3px solid #23c09d;padding-left: 20PX;\">\n" +
+                "                                            message: %s \n" +
+                "                                        </span>\n" +
+                "                                    </td>\n" +
+                "                                </tr>\n" +
+                "                            </table>\n" +
+                "                        </td>\n" +
+                "                    </tr>\n" +
+                "                </table>\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "    </table>";
+    }
+
+    public String getMailCustom() {
+        return mailCustom;
+    }
+
+    private String successfullySent;
+
+    @PostConstruct
+    public void initSuccessfullySent() {
+        this.successfullySent = "<table\n" +
+                "      border=\"0\"\n" +
+                "      cellpadding=\"0\"\n" +
+                "      cellspacing=\"0\"\n" +
+                "      width=\"100%%\"\n" +
+                "      bgcolor=\"#EDF9F5\"\n" +
+                "      style=\"font-size: 14px; font-family: Arial; padding-bottom: 40px\"\n" +
+                "    >\n" +
+                "      <tr>\n" +
+                "        <td height=\"30\"></td>\n" +
+                "      </tr>\n" +
+                "      <tr>\n" +
+                "        <td>\n" +
+                "          <table\n" +
+                "            border=\"0\"\n" +
+                "            cellpadding=\"8\"\n" +
+                "            cellspacing=\"0\"\n" +
+                "            width=\"600\"\n" +
+                "            bgcolor=\"#FFFFFF\"\n" +
+                "            align=\"center\"\n" +
+                "          >\n" +
+                "            <tr>\n" +
+                "              <td bgcolor=\"#23c09d\"></td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "              <td>\n" +
+                "                <table\n" +
+                "                  border=\"1\"\n" +
+                "                  cellpadding=\"8\"\n" +
+                "                  cellspacing=\"0\"\n" +
+                "                  width=\"100%%\"\n" +
+                "                  align=\"center\"\n" +
+                "                  style=\"border-collapse: collapse; border-color: #ebeef5\"\n" +
+                "                >\n" +
+                "                  <tr>\n" +
+                "                    <td\n" +
+                "                      height=\"60\"\n" +
+                "                      align=\"center\"\n" +
+                "                      style=\"\n" +
+                "                        color: #23c09d;\n" +
+                "                        font-weight: 500;\n" +
+                "                        font-size: 1.5rem;\n" +
+                "                        border-bottom: 1px solid #dcdfe6;\n" +
+                "                      \"\n" +
+                "                    >\n" +
+                "                      收到一封来自FidNor.com的邮件\n" +
+                "                    </td>\n" +
+                "                  </tr>\n" +
+                "                  <tr>\n" +
+                "                    <td height=\"60\" style=\"font-size: 1.1rem; color: #1f2f3d\">\n" +
+                "                      <span\n" +
+                "                        style=\"\n" +
+                "                          border-left: 3px solid #23c09d;\n" +
+                "                          padding-left: 20px;\n" +
+                "                        \"\n" +
+                "                      >\n" +
+                "                      The test sample request email you sent has been received \n" +
+                "                      </span>\n" +
+                "                    </td>\n" +
+                "                  </tr>\n" +
+                "                  <tr>\n" +
+                "                    <td height=\"60\" style=\"font-size: 1.1rem; color: #1f2f3d\">\n" +
+                "                      <span\n" +
+                "                        style=\"\n" +
+                "                          border-left: 3px solid #23c09d;\n" +
+                "                          padding-left: 20px;\n" +
+                "                        \"\n" +
+                "                      >\n" +
+                "                      we will contact you later\n" +
+                "                      </span>\n" +
+                "                    </td>\n" +
+                "                  </tr>\n" +
+                "                  <tr>\n" +
+                "                    <td height=\"60\" style=\"font-size: 1.1rem; color: #bbbec2\">\n" +
+                "                      <span\n" +
+                "                        style=\"\n" +
+                "                          border-left: 3px solid #bbc9c6;\n" +
+                "                          padding-left: 20px;\n" +
+                "                        \"\n" +
+                "                      >\n" +
+                "                      This email is a system callback, please reply in error\n" +
+                "                      </span>\n" +
+                "                    </td>\n" +
+                "                  </tr>\n" +
+                "                </table>\n" +
+                "              </td>\n" +
+                "            </tr>\n" +
+                "          </table>\n" +
+                "        </td>\n" +
+                "      </tr>\n" +
+                "    </table>";
+    }
+
+    public String getSuccessfullySent() {
+        return successfullySent;
+    }
+
+
     @Async
     public void sendMailMessage(List<String> to, String subject, String text) {
         log.info("发送邮件===================");
